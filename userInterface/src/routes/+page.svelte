@@ -2,6 +2,8 @@
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+
+	import "../app.css";
 </script>
 
 <svelte:head>
@@ -17,18 +19,25 @@
 				<img src={welcome_fallback} alt="Welcome" />
 			</picture>
 		</span>
-
+		<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/signup">Sign Up</a>
 		to your new<br />SvelteKit app
 	</h1>
 
 	<h2>
 		try editing <strong>src/routes/+page.svelte</strong>
 	</h2>
+	<h1 class="text-3xl font-bold underline divide-sky-900 rounded-none">
+		Hello world!
+	</h1>
 
 	<Counter />
 </section>
 
-<style>
+<style lang="postcss">
+	:global(html) {
+		background-color: theme(colors.gray.100);
+	}
+
 	section {
 		display: flex;
 		flex-direction: column;
