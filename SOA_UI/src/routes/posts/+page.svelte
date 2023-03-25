@@ -22,7 +22,7 @@
 
     //Example for this
     // https://svelte.dev/repl/28996f04783542ceafed7cc6a85128b9?version=3.23.0
-    import { storeFE, idIncrement } from './store.js';
+    import { storeFE, idIncrement } from '../search/store.js';
     import Item from './Item.svelte';
     $storeFE = [
         // { id:0, text: 'First option', user: "F.a.kromwijk@gmail.com", time: '2020-05-01 12:00:00'},
