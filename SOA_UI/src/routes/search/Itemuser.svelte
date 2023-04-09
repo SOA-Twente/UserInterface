@@ -27,8 +27,8 @@
 <!--        </a>-->
 <!--    </div>-->
 <!--{/if}-->
-<a class="list-group-item list-group-item-action" href="{objAttributes.username}">
-        <a class="" href="{objAttributes.username}">@{objAttributes.username}</a>
+<a class="list-group-item list-group-item-action" href="/user/{objAttributes.username}">
+        <a class="" href="/user/{objAttributes.username}">@{objAttributes.username}</a>
 </a>
 
 

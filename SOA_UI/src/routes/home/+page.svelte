@@ -11,4 +11,4 @@
 </script>
 
 <Search />
-<Posts />
+<Posts url={'http://localhost:8081/getAllQuacks'} />

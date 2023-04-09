@@ -88,7 +88,7 @@
             console.log(response)
             return response.json();
         }).then(post => {
-            console.log(post);
+            localStorage.setItem("username", post.username);
         })
     }
 

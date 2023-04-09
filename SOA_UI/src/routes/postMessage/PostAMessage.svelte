@@ -1,7 +1,9 @@
 <div class="form-group w-50 mx-auto">
     <label for="exampleFormControlTextarea1">Post Quack</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    <button class="btn btn-primary my-1 mx-right" type="submit" id="submit">Submit Quack</button>
+    <div class="overflow-auto" height="30">
+    <button class="btn btn-primary my-1 float-end " type="submit" id="submit">Quack!</button>
+    </div>
 </div>
 
 
