@@ -67,6 +67,7 @@
         //Save the cookie for a little bit less than an hour (the cookie is valid for 1 hour)
         document.cookie = "credentials=" + response.credential + "; path=/; max-age=3500";
         showingLoginScreen = false;
+        registerUser();
     }
     function renderButton () {
         window.google.accounts.id.initialize({
@@ -78,6 +79,17 @@
             { theme: "outline", size: "large", shape: "pill" }  // customization attributes
         );
         // window.google.accounts.id.prompt(); // also display the One Tap dialog
+    }
+    function registerUser(){
+        fetch('http://localhost:8082/registerUser', {
+            method: 'POST',
+            credentials: 'include',
+        }).then(response => {
+            console.log(response)
+            return response.json();
+        }).then(post => {
+            console.log(post);
+        })
     }
 
 </script>
