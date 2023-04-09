@@ -1,6 +1,6 @@
 <script>
     import { fade } from 'svelte/transition';
-    import { storeFE } from './store.js';
+    import { storeFE } from './storePosts.js';
     export let objAttributes = {};
 
     function removeComponent() {
@@ -10,9 +10,9 @@
         console.log($storeFE);
     }
 </script>
-<div class="card mx-auto" style="width: 50rem;">
+<div class="card mx-auto w-50" style="width: 50rem;">
     <div class="card-body">
-    <h5 class="card-title">{objAttributes.username}</h5>
+    <h5 class="card-title">{objAttributes.user}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{objAttributes.time}</h6>
     <p class="card-text">{objAttributes.text}</p>
     <a href="#" class="card-link">Reply</a>
