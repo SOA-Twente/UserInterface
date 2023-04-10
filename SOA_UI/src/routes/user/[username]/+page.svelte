@@ -17,6 +17,8 @@
 
     let userData = {};
     let url = 'http://localhost:8081/getQuacksByUsername/' + data.post.url;
+    let tagsList = [];
+    let tagString = "";
 
     onMount(() => {
         fetch('http://localhost:8080/getUserData/'+ data.post.url, {
@@ -27,6 +29,18 @@
                 console.log(data);
                 userData = data;
                 console.log(url)
+                return data;
+
+        }).then(someData =>{
+            let cleanTags = someData.tags.replace("{", "");
+            cleanTags = cleanTags.replace("}", "");
+            tagsList = cleanTags.split(",");
+            console.log("cleanTags");
+            console.log(cleanTags);
+            for (let i = 0; i < tagsList.length; i++) {
+                tagString += "#"+tagsList[i] + " ";
+            }
+
         });
         getFollowing();
 
@@ -86,6 +100,10 @@
     }
 
 
+    function cleanUserData() {
+
+
+    }
 
 
 
@@ -108,7 +126,7 @@
 
         <h5 class="card-title">{userData.username}</h5>
 
-        <h7 class="card-subtitle mb-2 text-muted">Tags: {userData.tags}</h7>
+        <h7 class="card-subtitle mb-2 text-muted">Tags: {tagString}</h7>
         <p/>
         <h6>Description:</h6>
         <p class="card-text">{userData.description}</p>
