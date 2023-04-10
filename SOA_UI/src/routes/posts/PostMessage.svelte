@@ -21,7 +21,14 @@
 
     function getQacks() {
         console.log("getQacks at url: " + url);
-        fetch(url)
+        fetch(url, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 console.log(data);
