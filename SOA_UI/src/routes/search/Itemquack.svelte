@@ -5,7 +5,7 @@
 
 </script>
 
-<a class="list-group-item list-group-item-action" href="/quack/{objAttributes.id}">
+<a class="list-group-item list-group-item-action" href="/quacks/{objAttributes.id}">
         <a class="" href="/user/{objAttributes.username}">@{objAttributes.username}</a>
         <p>{objAttributes.quack}</p>
 </a>

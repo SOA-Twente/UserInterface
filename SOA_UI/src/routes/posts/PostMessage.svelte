@@ -16,7 +16,7 @@
 
     function addItem(data) {
         var l = $storeFE.length;	// get our current items list count
-        $storeFE[l] = {id:data.id, text: data.quack, user: data.user_id, time: data.created_at, isReply: data.reply, replyId: data.reply_to_quack_id, isRetweet: data.is_retweet, retweetId: data.retweet_of_quack_id};
+        $storeFE[l] = {id:data.id, text: data.quack, user: data.user_id, time: data.created_at, isReply: data.is_reply, replyId: data.reply_to_quack_id, isRetweet: data.is_retweet, retweetId: data.retweet_of_quack_id};
     }
 
     function getQacks() {

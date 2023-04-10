@@ -23,7 +23,7 @@
             },
             body: JSON.stringify({
                 quack: objAttributes.text,
-                is_reply: false,
+                is_reply: objAttributes.isReply,
                 repliedQuackId: 0,
                 is_retweet: true,
                 retweetedQuackId: objAttributes.id
@@ -37,7 +37,8 @@
     }
 
 </script>
-<div class="card mx-auto w-50" style="width: 50rem;">
+<div class="card mx-auto w-50" style="width: 50rem;" >
+    <a class="text-decoration-none text-reset" href="/quacks/{objAttributes.id}">
     <div class="card-body">
         {#if objAttributes.isRetweet == true}
         <p class="text-primary">Retweeted</p>
@@ -55,4 +56,5 @@
 
 
     </div>
+    </a>
 </div>
