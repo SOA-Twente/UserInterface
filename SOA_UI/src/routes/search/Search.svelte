@@ -46,7 +46,9 @@
     }
     function addItemQuack(data) {
         var l = $storeFEQuack.length;	// get our current items list count
-        $storeFEQuack[l] = {username: data.user_id, quack: data.quack, created_at: data.created_at};
+        console.log('this is the data:')
+        console.log(data);
+        $storeFEQuack[l] = {username: data.user_id, quack: data.quack, created_at: data.created_at, id: data.id};
     }
 
 

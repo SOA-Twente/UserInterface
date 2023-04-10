@@ -48,9 +48,11 @@
     <h5 class="card-title">{objAttributes.user}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{objAttributes.time}</h6>
     <p class="card-text">{objAttributes.text}</p>
-        <p class="card-text">{objAttributes.isRetweet}</p>
+        {#if objAttributes.isReply == false}
+            <a href="/quacks/{objAttributes.id}" class="card-link" on:click={reply}>Reply</a>
+        {/if}
+        <a href="#" class="card-link" on:click={retweet}>Retweet</a>
 
-        <a href="#" class="card-link" on:click={reply}>Reply</a>
-    <a href="#" class="card-link" on:click={retweet}>Retweet</a>
-</div>
+
+    </div>
 </div>
