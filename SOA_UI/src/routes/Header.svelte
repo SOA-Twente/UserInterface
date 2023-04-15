@@ -1,6 +1,6 @@
 <script>
     import { page } from '$app/stores';
-    import logo from '$lib/images//header/logo.png';
+    import logo from '$lib/images//header/Logo.png';
     import profile from '$lib/images//header/person-bounding-box.svg';
     import message from '$lib/images//header/pencil-square.svg';
     import settings from '$lib/images//header/gear-fill.svg';
@@ -16,8 +16,7 @@
     });
 
 </script>
-
-<header>
+    <header>
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="/home">
             <img src={logo} width="30" height="30" class="d-inline-block align-top ms-5" alt="">
@@ -46,5 +45,6 @@
 
 
 </header>
+
 
 

@@ -9,6 +9,5 @@
     import Posts from './../posts/PostMessage.svelte';
 
 </script>
-
 <Search />
 <Posts url={'http://localhost:8081/getAllQuacks'} />

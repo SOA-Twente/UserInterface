@@ -2,10 +2,9 @@
     import Header from './Header.svelte';
     import LoginOverlay from './LoginOverlay.svelte';
     import 'bootstrap/dist/css/bootstrap.min.css';
-    import logo from '$lib/images//header/logo.png';
+    import logo from '$lib/images/header/Logo.png';
     // import './styles.css';
 </script>
-
 <div class="app">
     <Header />
 
