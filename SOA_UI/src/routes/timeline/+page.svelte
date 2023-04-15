@@ -24,4 +24,4 @@
 </script>
 
 
-<Posts url={'http://localhost:8081/getAllQuacks'} />
+<Posts url={'http://localhost:8083/timeline'} />
