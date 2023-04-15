@@ -8,12 +8,29 @@
     <button on:click={registerUser}>Register User</button>
     <button on:click={search}>Search</button>
     <button on:click={userData}>Get user data</button>
+    <button on:click={sendMsg}>Send msg</button>
 </div>
 
 
 <script>
 
-
+    function sendMsg() {
+        fetch('http://localhost:8082/registerUser', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                following_id: ""
+            })
+        }).then(response => {
+            console.log(response)
+            return response.json();
+        }).then(post => {
+            console.log(post)
+        })
+    }
 
 
 
