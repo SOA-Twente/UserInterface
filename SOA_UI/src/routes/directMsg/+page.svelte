@@ -2,6 +2,12 @@
 
 </svelte:head>
 <script>
+    const socket =null;
+    var intervalId = window.setInterval(function(){
+        // call your function here
+
+    }, 500);
+
     let initiator = 'yunfeng@hotmail.nl'; // set the initiator value
     let receiver = 'yunfeng@hotmail.nl'; // set the receiver value
     let convoID = 1; // set the convoID value
@@ -37,7 +43,8 @@
                     // Check if the received message starts with "Confirmation"
                     if (receivedMessage.startsWith("Confirmation")) {
                         // Close the WebSocket session
-                        socket.send("received")
+                        socket.send("received");
+                        socket.close();
                     }
                 });
 
