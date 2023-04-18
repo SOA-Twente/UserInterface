@@ -11,7 +11,7 @@
 
     function handleCredentialResponse(response) {
         // console.log("Encoded JWT ID token: " + response.credential);
-        //Save the cookie for a little bit less than an hour (the cookie is valid for 1 hour)
+        //Save the cookie for a little less than an hour (the cookie is valid for 1 hour)
         document.cookie = "credentials=" + response.credential + "; path=/; max-age=3500";
         registerUser();
     }
