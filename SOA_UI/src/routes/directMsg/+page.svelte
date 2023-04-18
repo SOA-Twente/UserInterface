@@ -4,7 +4,8 @@
 <script>
 
     // to store the received messages in
-    let messages = [];
+    export let messages = [];
+    export let sortedMessages = [];
 
     let initiator = 'yunfeng@hotmail.nl'; // set the initiator value
     let receiver = 'yunfeng@hotmail.nl'; // set the receiver value
@@ -67,6 +68,7 @@
     }
 
     const fetchConversation = async () => {
+
         try {
             const producerURL = 'http://localhost:8088/getConvo';
             const response = await fetch(producerURL, {
@@ -82,6 +84,7 @@
                 // handle successful response
                 const correlationID = await response.text();
                 console.log('correlation-id:', correlationID);
+
 
                 // Establish WebSocket connection with the correlation ID
                 const socket = new WebSocket(`ws://localhost:8089/directMsg/websocket/${correlationID}`);
@@ -103,13 +106,14 @@
                     // remove the "Confirmation:" before parsing
                     const jsonMessage = receivedMessage.substring("Confirmation:".length);
                     messages = JSON.parse(jsonMessage);
+                    // Sort messages by creation time
+                    $: sortedMessages = messages.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
                 });
 
                 // Add event listener for WebSocket connection closed
                 socket.addEventListener('close', (event) => {
                     // WebSocket connection closed
                     console.log('WebSocket connection closed:', event);
-                    // You can handle the WebSocket closure here, e.g., attempt to reconnect
                 });
             } else {
                 // handle error response
@@ -182,16 +186,34 @@
 
 
 <!--Add html here-->
-{#if messages.length === 0}
-    <p>No conversations to display.</p>
-{:else}
-    {#each messages as message}
-        <h2>Conversation {message.convoID}</h2>
-        {#each message.messages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)) as message}
-            <div>
-                <p>{message.sender}: {message.message}</p>
-                <p>Created at: {message.createdAt}</p>
-            </div>
-        {/each}
+<style>
+    .scrollable {
+        overflow-y: scroll;
+        height: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .message-container {
+        margin-bottom: 10px;
+    }
+
+    .message-container span:first-child {
+        font-weight: bold;
+    }
+
+    .message-container span:last-child {
+        margin-left: 10px;
+    }
+</style>
+
+<div class="scrollable">
+    {#each sortedMessages as message}
+        <div class="message-container">
+            <span>{message.sender}: </span>
+            <span>{message.message}</span>
+            <p><small>{message.createdAt}</small></p>
+        </div>
     {/each}
-{/if}
+</div>
